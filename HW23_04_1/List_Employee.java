@@ -35,10 +35,10 @@ public class List_Employee {
 	}
 	
 	public static void main(String[] args) {
-		List<Employee> list = List_Employee.readData("employee.csv");
+		List<Employee> list = List_Employee.readData("D:/Study/Distributed System/Distributed-System/HW23_04_1/employees.csv");
 		System.out.println(list);
 		
-		List_Employee.writeData("new_employees.csv",list);
+		List_Employee.writeData("D:/Study/Distributed System/Distributed-System/HW23_04_1/new_employees.csv",list);
 	}
 	
 	public static void writeData(String fileName, List<Employee> employees) {
