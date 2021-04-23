@@ -8,7 +8,7 @@ import java.net.Socket;
 public class Server {
 	public static void main(String args[]) {
 		try {
-			int port = 1999;
+			int port = 1998;
 			
 			ServerSocket server = new ServerSocket(port);
 			System.out.println("Server started: " + server);
@@ -18,8 +18,7 @@ public class Server {
 			System.out.println("Client accepted: " + socket);
 
 			// open stream
-			DataInputStream streamIn = 
-					new DataInputStream(socket.getInputStream());
+			DataInputStream streamIn = new DataInputStream(socket.getInputStream());
 
 			boolean done = false;
 			while (!done) {
