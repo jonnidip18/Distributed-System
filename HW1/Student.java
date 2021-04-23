@@ -1,4 +1,4 @@
-package Exercise;
+package HW1;
 
 import java.io.Serializable;
 

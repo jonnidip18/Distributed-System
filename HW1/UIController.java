@@ -1,4 +1,4 @@
-package Exercise;
+package HW1;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
