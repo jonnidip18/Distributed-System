@@ -35,7 +35,7 @@ public class Client {
 					String Newspaper = tokens.nextToken();
 					String sales = tokens.nextToken();
 					// send to server
-					streamOut.writeUTF(TV +" , "+ Radio +" , "+ Newspaper +" , "+ sales);
+					streamOut.writeUTF(TV +"\t"+ Radio +"\t"+ Newspaper +"\t"+ sales);
 					streamOut.flush();
 				}
 			} catch (IOException ioe) {
