@@ -14,19 +14,23 @@ import com.mysql.cj.xdevapi.Statement;
 public class Server {
 	public Server() {}
 	
-	public account getAccount(String user, String pass) throws RemoteException{
+	public boolean checkAccount(String user, String pass) throws RemoteException{
 		try {
 			String url = "jdbc:mysql://localhost:3306/database1";
 			Connection con = DriverManager.getConnection(url,"root","Hiapro123");
-			String query = "select * from account where " + user + "=username and " + pass + "=password";
-			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery(query);
-			account acc = new account(rs.getString(1),rs.getString(2));		
+			PreparedStatement st = con.prepareStatement("SELECT * FROM login WHERE username = ? AND password = ?");
+            st.setString(1, user);
+            st.setString(2, pass);
+            System.out.println(st);
+            ResultSet rs = st.executeQuery();
 			con.close();
-			return acc;
+
+            if (rs.next())
+                return true;
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+		return false;
 	}
 	
 	public static void main(String[] args) {

@@ -1,5 +1,9 @@
 package practice_test;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class game {
 	private String[][] game = new String[3][3];
 	
@@ -23,8 +27,19 @@ public class game {
 		return false;
 	}
 	
-	public boolean play(String player, int x, int y) {
+	public boolean play(String player) throws IOException {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		while(true) {
+			System.out.print("Player '"+player+"', enter your move (row[1-3] column[1-3]): ");
+			String line = reader.readLine();
+			int x,y;
+			String[] split = line.split(" ");
+			x = Integer.parseInt(split[0]) - 1;
+			y = Integer.parseInt(split[1]) - 1;
+			if ((x>2) || (y>2) || (x<0) || (y<0)) {
+				System.out.println("The input is not valid. Try again...");
+				continue;
+			}
 			if(game[x][y] == " ") {
 				game[x][y] = player;
 				System.out.println(" " + game[0][0] + " | " + game[0][1] + " | " + game[0][2]);
