@@ -4,16 +4,12 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class game {
-	private String[][] game = new String[3][3];
+public class game_play {
+	private String[][] game = { { " ", " ", " " }, { " ", " ", " " }, { " ", " ", " " } };
+	private String winner;
+	private String player;
 	
-	public game() {
-		for (int i = 0 ; i < 3 ; i++) {
-			for (int j = 0 ; j < 3 ; j++) {
-				game[i][j]=" ";
-			}
-		}
-	}
+	
 	public boolean check_win(String player,int x,int y) {
 		if (game[x][0] == player && game[x][1] == player && game[x][2] == player) {
 			return true;
