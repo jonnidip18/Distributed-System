@@ -44,6 +44,7 @@ public class Server {
 		ObjectOutputStream out = new ObjectOutputStream(client.getOutputStream());
 		Student student = (Student) in.readObject();
 		updateDatabase(conn, student.getName(), student.getAge());
+		System.out.println("student has been added.");
 	}
 
 }
