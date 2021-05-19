@@ -17,7 +17,7 @@ public class Client {
 		ObjectOutputStream toServer = null;
 		ObjectInputStream fromServer = null;
 		BufferedReader br = null;
-		UIController.main(null);
+//		UIController.main(null);
 
 		try {
 			br = new BufferedReader(new InputStreamReader(System.in));

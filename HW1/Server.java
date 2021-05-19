@@ -17,6 +17,7 @@ public class Server {
 
 		try {
 			serverSocket = new ServerSocket(serverPort);
+			System.out.println("Waiting...");
 			while (true) {
 				Socket socket = serverSocket.accept();
 				System.out.println("Just connected to " + socket.getRemoteSocketAddress());
@@ -27,9 +28,8 @@ public class Server {
 				String name = msgRequest.getName();
 				String id = msgRequest.getID();
 				String dob = msgRequest.getDOB();
-
-				toClient.writeObject(new Student(name, id, dob));
-				toClient.flush();
+				
+				System.out.println("Name: " + name + "\nID: " + id + "\nDate of birth: " + dob);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
