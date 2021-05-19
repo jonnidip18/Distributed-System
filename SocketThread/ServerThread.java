@@ -3,8 +3,6 @@ package SocketThread;
 import java.net.*;
 import java.io.*;
 
-import HW27_04.ChatServer;
-
 public class ServerThread extends Thread{
 	private Server server;
 	private Socket socket;
