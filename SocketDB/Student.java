@@ -19,4 +19,9 @@ public class Student implements Serializable{
 	public int getAge() {
 		return age;
 	}
+	
+	public String toString() {
+		String string = "Name: \t" + this.name + "\nAge: \t" + this.age;
+		return string;
+	}
 }

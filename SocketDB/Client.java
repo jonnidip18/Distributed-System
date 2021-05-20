@@ -23,6 +23,7 @@ public class Client {
 			Student student = new Student(name,age);
 			System.out.println("created student");
 			out.writeObject(student);
+			out.flush();
 			System.out.println("sended");
 		}
 		catch(IOException e){
