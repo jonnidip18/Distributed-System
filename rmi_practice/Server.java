@@ -8,18 +8,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Server {
-	public static Connection connectToDB(String user, String pass) {
-		// connect to database
-        String databaseUrl = "jdbc:mysql://localhost:3306/database1?user=" + user + "&password=" + pass;
-        Connection conn = null;
-        try {
-            conn = DriverManager.getConnection(databaseUrl);
-        } catch (SQLException e1) {
-            e1.printStackTrace();
-        }
-        return conn;
-	}
-	
 	public static void main(String[] args) {
 		 ServerServiceImp obj = new ServerServiceImp();
 
