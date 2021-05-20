@@ -33,6 +33,7 @@ public class ServerServiceImp implements ServerService{
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        System.out.println("added book");
 	}
 
 	@Override
@@ -47,5 +48,6 @@ public class ServerServiceImp implements ServerService{
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        System.out.println("added newspaper");
 	}
 }
