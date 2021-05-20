@@ -1,6 +1,8 @@
 package rmi_practice;
 
-public class Book {
+import java.io.*;
+
+public class Book implements Serializable{
 	private String name;
 	private String author;
 	

@@ -1,6 +1,8 @@
 package rmi_practice;
 
-public class Newspaper {
+import java.io.Serializable;
+
+public class Newspaper implements Serializable{
 	private String name;
 	private String type;
 	

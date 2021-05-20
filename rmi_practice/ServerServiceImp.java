@@ -1,10 +1,8 @@
 package rmi_practice;
 
 import java.rmi.RemoteException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.*;
 
 public class ServerServiceImp implements ServerService{
 	public ServerServiceImp() {}
@@ -50,4 +48,22 @@ public class ServerServiceImp implements ServerService{
         }
         System.out.println("added newspaper");
 	}
+
+	@Override
+	public List<Book> getBook() throws RemoteException {
+		List<Book> books = new ArrayList<>();
+		Connection conn = connectToDB("root","Hiapro123");
+		String query = "Select * from Book";
+		try {
+            PreparedStatement st = conn.prepareStatement(query); // create prepared statement
+            ResultSet res = st.executeQuery();
+            while(res.next()) {
+            	books.add(new Book(res.getString("name"),res.getString("author")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+		return books;
+	}
+	
 }

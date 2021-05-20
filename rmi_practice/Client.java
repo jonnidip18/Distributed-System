@@ -2,6 +2,7 @@ package rmi_practice;
 
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.util.*;
 
 public class Client {
 
@@ -13,6 +14,10 @@ public class Client {
             stub.addBook("haha","hihi");
             stub.addNewspaper("hahi","hiha");
             System.out.println("sended");
+            List<Book> books = stub.getBook();
+            for(Book b : books) {
+            	System.out.println("Name: " + b.getName() + "\tAuthor: " + b.getAuthor());
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
