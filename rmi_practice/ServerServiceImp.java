@@ -3,6 +3,7 @@ package rmi_practice;
 import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class ServerServiceImp implements ServerService{
@@ -23,6 +24,28 @@ public class ServerServiceImp implements ServerService{
 	@Override
 	public void addBook(String name, String author) throws RemoteException {
 		Connection conn = connectToDB("root","Hiapro123");
-		
+		String query = "INSERT INTO Book(name, author) VALUE (?, ?)";
+        try {
+            PreparedStatement st = conn.prepareStatement(query); // create prepared statement
+            st.setString(1, name);
+            st.setString(2, author);
+            st.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+	}
+
+	@Override
+	public void addNewspaper(String name, String type) throws RemoteException {
+		Connection conn = connectToDB("root","Hiapro123");
+		String query = "INSERT INTO Newspaper(name, type) VALUE (?, ?)";
+        try {
+            PreparedStatement st = conn.prepareStatement(query); // create prepared statement
+            st.setString(1, name);
+            st.setString(2, type);
+            st.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 	}
 }
