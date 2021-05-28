@@ -1,39 +1,59 @@
 package XML;
 
-import java.io.File;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
-
 public class staff {
-	public static void main(String[] args) {
-		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-		try {
-			// parse XML file
-			DocumentBuilder db = dbf.newDocumentBuilder();
-			Document doc = db.parse(new File("XML/staff.xml"));
-			
-			Element rootElement = (Element) doc.getDocumentElement();
-			NodeList staffs = rootElement.getElementsByTagName("staff");
-
-			for(int i = 0; i<staffs.getLength(); i++) {
-				Element staff = (Element) staffs.item(i);
-				
-				System.out.println("ID: " + staff.getAttribute("id"));
-				System.out.println("Firstname : " + staff.getElementsByTagName("firstname").item(0).getTextContent());
-				System.out.println("Lastname : " + staff.getElementsByTagName("lastname").item(0).getTextContent());
-				System.out.println("Salary : " + staff.getElementsByTagName("salary").item(0).getTextContent() 
-									+ ((Element) staff.getElementsByTagName("salary").item(0)).getAttribute("currency"));
-				System.out.println("Nickname: "+ staff.getElementsByTagName("nickname").item(0).getTextContent());
-				
-				
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+	private int id;
+	private String f_name;
+	private String l_name;
+	private int salary;
+	private String currency;
+	
+	public staff(int id, String f_name, String l_name, int salary, String currency) {
+		super();
+		this.id = id;
+		this.f_name = f_name;
+		this.l_name = l_name;
+		this.salary = salary;
+		this.currency = currency;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getF_name() {
+		return f_name;
+	}
+
+	public void setF_name(String f_name) {
+		this.f_name = f_name;
+	}
+
+	public String getL_name() {
+		return l_name;
+	}
+
+	public void setL_name(String l_name) {
+		this.l_name = l_name;
+	}
+
+	public int getSalary() {
+		return salary;
+	}
+
+	public void setSalary(int salary) {
+		this.salary = salary;
+	}
+
+	public String getCurrency() {
+		return currency;
+	}
+
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
+	
 }
