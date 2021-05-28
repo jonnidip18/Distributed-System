@@ -1,14 +1,13 @@
 package XML;
 
 import java.io.File;
-import java.io.IOException;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 
 import org.w3c.dom.Document;
-import org.xml.sax.SAXException;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
 
 public class staff {
 	public static void main(String[] args) {
@@ -17,17 +16,23 @@ public class staff {
 			// parse XML file
 			DocumentBuilder db = dbf.newDocumentBuilder();
 			Document doc = db.parse(new File("XML/staff.xml"));
+			
+			Element rootElement = (Element) doc.getDocumentElement();
+			NodeList staffs = rootElement.getElementsByTagName("staff");
 
-			System.out.println("Root Element :" + doc.getDocumentElement().getNodeName());
-			System.out.println("------");
-
-			String name = doc.getElementsByTagName("name").item(0).getTextContent();
-			String salary = doc.getElementsByTagName("salary").item(0).getTextContent();
-
-			System.out.println("Name : " + name);
-			System.out.println("salarye : " + salary);
-
-		} catch (ParserConfigurationException | SAXException | IOException | NullPointerException e) {
+			for(int i = 0; i<staffs.getLength(); i++) {
+				Element staff = (Element) staffs.item(i);
+				
+				System.out.println("ID: " + staff.getAttribute("id"));
+				System.out.println("Firstname : " + staff.getElementsByTagName("firstname").item(0).getTextContent());
+				System.out.println("Lastname : " + staff.getElementsByTagName("lastname").item(0).getTextContent());
+				System.out.println("Salary : " + staff.getElementsByTagName("salary").item(0).getTextContent() 
+									+ ((Element) staff.getElementsByTagName("salary").item(0)).getAttribute("currency"));
+				System.out.println("Nickname: "+ staff.getElementsByTagName("nickname").item(0).getTextContent());
+				
+				
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

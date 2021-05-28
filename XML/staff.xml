@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<staff>
-	<name>Peter</name>
-	<salary currency = "USD">100000</salary>
-</staff>
+<company>
+	<staff>
+		<firstname>Peter</firstname>
+		<lastname>White</lastname>
+		<nickname>Joe</nickname>
+		<salary currency = "USD">100000</salary>
+	</staff>
+	<staff>
+		<firstname>Hella</firstname>
+		<lastname>Black</lastname>
+		<nickname>Dung</nickname>
+		<salary currency = "VND">100000</salary>
+	</staff>
+</company>
