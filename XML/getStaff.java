@@ -27,8 +27,8 @@ public class getStaff {
 				System.out.println("Firstname : " + staff.getElementsByTagName("firstname").item(0).getTextContent());
 				System.out.println("Lastname : " + staff.getElementsByTagName("lastname").item(0).getTextContent());
 				System.out.println("Salary : " + staff.getElementsByTagName("salary").item(0).getTextContent() 
-									+ ((Element) staff.getElementsByTagName("salary").item(0)).getAttribute("currency"));
-				System.out.println("Nickname: "+ staff.getElementsByTagName("nickname").item(0).getTextContent());
+								+ " " + ((Element) staff.getElementsByTagName("salary").item(0)).getAttribute("currency"));
+				System.out.println("Nickname: "+ staff.getElementsByTagName("nickname").item(0).getTextContent() + "\n");
 				
 				
 			}

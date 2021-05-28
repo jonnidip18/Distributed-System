@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <company>
-	<staff>
+	<staff id = "1">
 		<firstname>Peter</firstname>
 		<lastname>White</lastname>
 		<nickname>Joe</nickname>
 		<salary currency = "USD">100000</salary>
 	</staff>
-	<staff>
+	<staff id = "999">
 		<firstname>Hella</firstname>
 		<lastname>Black</lastname>
 		<nickname>Dung</nickname>
