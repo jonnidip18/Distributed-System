@@ -4,16 +4,26 @@ public class staff {
 	private int id;
 	private String f_name;
 	private String l_name;
-	private int salary;
+	private String n_name;
+	private double salary;
 	private String currency;
 	
-	public staff(int id, String f_name, String l_name, int salary, String currency) {
+	public staff(int id, String f_name, String l_name, String n_name, double salary, String currency) {
 		super();
 		this.id = id;
 		this.f_name = f_name;
 		this.l_name = l_name;
+		this.n_name = n_name;
 		this.salary = salary;
 		this.currency = currency;
+	}
+
+	public String getN_name() {
+		return n_name;
+	}
+
+	public void setN_name(String n_name) {
+		this.n_name = n_name;
 	}
 
 	public int getId() {
@@ -40,7 +50,7 @@ public class staff {
 		this.l_name = l_name;
 	}
 
-	public int getSalary() {
+	public double getSalary() {
 		return salary;
 	}
 
@@ -54,6 +64,12 @@ public class staff {
 
 	public void setCurrency(String currency) {
 		this.currency = currency;
+	}
+
+	@Override
+	public String toString() {
+		return "staff [id=" + id + ", firstname=" + f_name + ", lastname=" + l_name + ", nickname=" + n_name + ", salary="
+				+ salary + ", currency=" + currency + "]";
 	}
 	
 }
