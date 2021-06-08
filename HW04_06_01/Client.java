@@ -34,7 +34,7 @@ public class Client {
 		out.writeUTF(xml);
 		out.flush();
 		reader.close();
-		System.out.println("sended");
+		System.out.println("sent");
 		
 		in = new DataInputStream(socket.getInputStream());
 		String getXML = in.readUTF();

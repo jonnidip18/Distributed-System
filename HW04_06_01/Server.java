@@ -101,7 +101,7 @@ public class Server {
 		String setXML = Object2Doc.convertObjects2Doc(students);
 		out.writeUTF(setXML);
 		out.flush();
-		System.out.println("sented");
+		System.out.println("sent");
 	}
 
 }
