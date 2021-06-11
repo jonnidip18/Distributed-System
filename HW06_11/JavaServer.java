@@ -15,7 +15,7 @@ public class JavaServer {
 		return x * y;
 	}
 	
-	public double div(int x, int y) {
+	public double div(double x, double y) {
 		return x / y;
 	}
 

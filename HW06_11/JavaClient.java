@@ -35,6 +35,7 @@ public class JavaClient {
 						int sum = ((Integer) result1).intValue();
 						System.out.println("The sum is: " + sum);
 						break;
+						
 					case 2:
 						// call a remote function
 						Object result2 =  client.execute("JavaServer.sub", params);
@@ -43,6 +44,7 @@ public class JavaClient {
 						int sub = ((Integer) result2).intValue();
 						System.out.println("The sub is: " + sub);
 						break;
+						
 					case 3:
 						// call a remote function
 						Object result3 =  client.execute("JavaServer.mul", params);
@@ -51,9 +53,13 @@ public class JavaClient {
 						int mul = ((Integer) result3).intValue();
 						System.out.println("The sub is: " + mul);
 						break;
+						
 					case 4:
+						Vector params1 = new Vector();
+						params1.addElement(num1*1.0);
+						params1.addElement(num2*1.0);
 						// call a remote function
-						Object result4 =  client.execute("JavaServer.div", params);
+						Object result4 =  client.execute("JavaServer.div", params1);
 
 						// process result
 						double div = ((Double) result4).doubleValue();
@@ -61,8 +67,6 @@ public class JavaClient {
 						break;
 				}
 			}
-			
-			
 		} catch (Exception exception) {
 			System.err.println("JavaClient: " + exception);
 		}
